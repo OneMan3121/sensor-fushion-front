@@ -17,6 +17,7 @@
   --input-bg: rgba(255, 255, 255, 0.94);
   --chip-bg: rgba(255, 255, 255, 0.82);
   min-height: 100vh;
+  width: 100%;
   color: var(--text-main);
   background:
           radial-gradient(circle at top left, rgba(14, 165, 233, 0.18), transparent 30%),
@@ -75,8 +76,8 @@
 }
 
 .hero-panel {
-  width: min(1400px, calc(100% - 32px));
-  margin: 24px auto 0;
+  width: calc(100% - 32px);
+  margin: 24px 16px 0;
   padding: 28px;
   display: flex;
   justify-content: space-between;
@@ -177,8 +178,8 @@
 }
 
 .app-main {
-  width: min(1400px, calc(100% - 32px));
-  margin: 22px auto 0;
+  width: calc(100% - 32px);
+  margin: 22px 16px 0;
   padding-bottom: 36px;
 }
 
@@ -475,8 +476,8 @@
 }
 
 .app-footer {
-  width: min(1400px, calc(100% - 32px));
-  margin: 0 auto 28px;
+  width: calc(100% - 32px);
+  margin: 0 16px 28px;
   padding: 16px 20px;
   border-radius: 20px;
   text-align: center;
@@ -531,7 +532,7 @@
   .hero-panel,
   .app-main,
   .app-footer {
-    width: min(100% - 20px, 1400px);
+    width: calc(100% - 20px);
   }
 
   .hero-panel {
