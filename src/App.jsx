@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import FileUploader from './components/FileUploader'
 import TrajectoryCharts from './components/TrajectoryCharts'
+import { buildApiUrl } from './config/api'
 import {
   Activity,
   AlertCircle,
@@ -53,13 +54,13 @@ function App() {
     setError(null)
 
     try {
-      const trajRes = await fetch(`http://localhost:8000/data/${id}/trajectory`)
+      const trajRes = await fetch(buildApiUrl(`/data/${id}/trajectory`))
       if (!trajRes.ok) throw new Error('Не вдалося отримати дані траєкторії')
       const trajData = await trajRes.json()
       setTrajectoryData(trajData)
 
       try {
-        const gpsRes = await fetch(`http://localhost:8000/data/${id}/gps.json`)
+        const gpsRes = await fetch(buildApiUrl(`/data/${id}/gps.json`))
         if (gpsRes.ok) {
           const gpsDataJson = await gpsRes.json()
           setGpsData(gpsDataJson)
@@ -72,7 +73,7 @@ function App() {
       }
 
       try {
-        const statRes = await fetch(`http://localhost:8000/data/${id}/stat`)
+        const statRes = await fetch(buildApiUrl(`/data/${id}/stat`))
         if (statRes.ok) {
           const statData = await statRes.json()
           setFlightStat(statData)
@@ -92,7 +93,7 @@ function App() {
 
   const handleDownloadCSV = () => {
     if (sessionId) {
-      window.open(`http://localhost:8000/data/${sessionId}/uavlogviewer`, '_blank')
+      window.open(buildApiUrl(`/data/${sessionId}/uavlogviewer`), '_blank')
     }
   }
 

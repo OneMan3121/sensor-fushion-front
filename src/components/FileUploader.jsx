@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CheckCircle, File, Loader, Upload, XCircle } from 'lucide-react'
+import { buildApiUrl } from '../config/api'
 
 const FileUploader = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null)
@@ -31,7 +32,7 @@ const FileUploader = ({ onUploadSuccess }) => {
     formData.append('file', file)
 
     try {
-      const response = await fetch('http://localhost:8000/upload', {
+      const response = await fetch(buildApiUrl('/upload'), {
         method: 'POST',
         body: formData,
       })
