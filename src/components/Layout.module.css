@@ -1,0 +1,32 @@
+.layout {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-areas: "left main right";
+  flex: 1;
+  transition: all 0.3s ease;
+  height: calc(100vh - 64px); /* Subtract header height */
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 60px 1fr 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main";
+  }
+}

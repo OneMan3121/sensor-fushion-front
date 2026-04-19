@@ -1,0 +1,23 @@
+.chartsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chartsMain {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chartBox {
+  background-color: white;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.chartBox h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
